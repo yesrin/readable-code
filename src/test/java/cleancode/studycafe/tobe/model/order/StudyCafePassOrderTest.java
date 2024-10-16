@@ -22,8 +22,8 @@ class StudyCafePassOrderTest {
     @Test
     void getTotalPrice() {
         // Given
-        StudyCafeLockerPass lockerPass = StudyCafeLockerPass.of(StudyCafePassType.FIXED, 1, 2000);
         StudyCafeSeatPass seatPass = StudyCafeSeatPass.of(StudyCafePassType.FIXED, 1, 10000, 0.1);
+        StudyCafeLockerPass lockerPass = StudyCafeLockerPass.of(StudyCafePassType.FIXED, 1, 2000);
 
         StudyCafePassOrder passOrder = StudyCafePassOrder.of(seatPass, lockerPass);
 
@@ -31,7 +31,7 @@ class StudyCafePassOrderTest {
         int totalPrice = passOrder.getTotalPrice();
 
         // Then
-        assertEquals(12000, totalPrice);
+        assertEquals(11000, totalPrice);
     }
 
     @Test
