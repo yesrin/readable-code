@@ -22,6 +22,23 @@ class StudyCafeSeatPassTest {
 
     }
 
+    @DisplayName("라커를 이용할 수 없는 좌석이용권이다.")
+    @Test
+    void cannotUseLocker(){
+        //Given
+        StudyCafeSeatPass hourlyPass = StudyCafeSeatPass.of(StudyCafePassType.HOURLY, 1, 10000, 0.1);
+        StudyCafeSeatPass weeklyPass = StudyCafeSeatPass.of(StudyCafePassType.WEEKLY, 1, 12000, 0.1);
+
+        //When
+        boolean hourlyPassResult = hourlyPass.cannotUseLocker();
+        boolean weeklyPassResult = weeklyPass.cannotUseLocker();
+
+        //Then
+        assertTrue(hourlyPassResult);
+        assertTrue(weeklyPassResult);
+
+    }
+
     @DisplayName("좌석이용권과 사물함 이용권의 타입과 기간이 같은지 확인한다.")
     @Test
     void isSameDurationType() {
